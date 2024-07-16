@@ -8,7 +8,9 @@ import org.example.rl.cst.behavior.EpisodicRLCodelet;
 import org.example.rl.cst.behavior.RL.actionSpaces.ActionSpace;
 import org.example.rl.cst.behavior.RL.actionSpaces.DiscreteActionSpace;
 import org.example.rl.cst.behavior.RL.learners.TensorforceLearner;
+import org.example.rl.cst.behavior.RL.learners.TorchBringerFlaskClient;
 import org.example.rl.cst.behavior.RL.learners.TorchBringerLearner;
+import org.example.rl.cst.behavior.RL.learners.TorchBringerSocketClient;
 import org.example.visualization.FirstJFrame;
 import org.example.visualization.SecondJFrame;
 
@@ -35,7 +37,8 @@ public class TorchBringerAgentMind extends AgentMind {
         ActionSpace actionSpace = new DiscreteActionSpace(actions);
 
         TorchBringerLearner torchBringerLearner;
-        torchBringerLearner = new TorchBringerLearner(50052, configPath);
+        //torchBringerLearner = new TorchBringerLearner(new TorchBringerSocketClient(50052), configPath);
+        torchBringerLearner = new TorchBringerLearner(new TorchBringerFlaskClient("http://127.0.0.1:5000"), configPath);
 
         return new EpisodicRLCodelet(torchBringerLearner, actionSpace, (MemoryObject) rlPerceptMO);
     }

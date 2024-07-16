@@ -11,7 +11,7 @@
         "type": "lin_decrease",
         "start": 0.9,
         "end": 0.1,
-        "steps_to_end": 1000000
+        "steps_to_end": 200000
     },
     "batch_size": 64,
     "grad_clip_value": 100,

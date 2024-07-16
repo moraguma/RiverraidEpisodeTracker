@@ -33,4 +33,9 @@ public class RLPercept {
     public boolean isTerminal() {
         return terminal;
     }
+
+    @Override
+    public String toString() {
+        return "State: " + state.toString() + "\nReward: " + reward.toString() + "\nTerminal: " + String.valueOf(terminal);
+    }
 }
