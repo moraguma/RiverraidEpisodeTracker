@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.environment.RiverRaidEnv;
 import org.example.environment.RiverRaidPyGame;
+import org.example.environment.RiverRaidPyGameFlask;
 import org.example.mind.*;
 import org.example.visualization.FirstJFrame;
 import org.example.visualization.SecondJFrame;
@@ -27,7 +28,7 @@ public class Main {
             secondJFrame.setVisible(true);
         }
 
-        RiverRaidEnv riverRaidEnv = new RiverRaidPyGame();
+        RiverRaidEnv riverRaidEnv = new RiverRaidPyGameFlask("http://localhost:6000");
         //AgentMind agentMind = new QLearningLFAAgentMind(riverRaidEnv, firstJFrame, secondJFrame);
         AgentMind agentMind = new TorchBringerAgentMind(riverRaidEnv, firstJFrame, secondJFrame);
     }
